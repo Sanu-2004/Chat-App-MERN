@@ -13,8 +13,8 @@ const Massage = ({message}) => {
   }, [message])
 
   return (
-    <div className="w-full" ref={msg}>
-      <div className={`chat chat-${message && (sender? "end": "start")} `}>
+    <div className={`w-full flex ${sender? "justify-end": "justify-start"}`}  ref={msg}>
+      <div className={`chat} `}>
         <div className={`chat-bubble chat-bubble-${message && (sender? "primary" : "secondary")}`}>
           {message && message.message}
         </div>

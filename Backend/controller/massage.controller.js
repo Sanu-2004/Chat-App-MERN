@@ -17,12 +17,12 @@ const sendMessage = async (req, res) => {
 
         if(!receiver) return res.status(404).json({message: "Receiver not found"});
 
-        const conversation = await Conversation.findOne({
+        let conversation = await Conversation.findOne({
             members: {$all: [senderId, receiverId]}
         });
 
         if(!conversation) {
-            const conversation = await Conversation.create({
+            conversation = await Conversation.create({
                 members: [senderId, receiverId],
             });
         }
@@ -38,7 +38,7 @@ const sendMessage = async (req, res) => {
         await conversation.save();
 
         const receiverSocketId = getSocketId(receiverId);
-
+        
         if(receiverSocketId){
             io.to(receiverSocketId).emit("newMessage", newMessage);
         }

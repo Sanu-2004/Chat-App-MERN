@@ -36,9 +36,9 @@ export const Signuphook = () => {
                 })
             })
             const data = await response.json()
-            console.log(data)
             if(data.message){
                 toast.error(data.message)
+                return
             }
             localStorage.setItem('chat', JSON.stringify(data))
             setUser(data)

@@ -28,7 +28,7 @@ const Massages = () => {
     getMessages()
   }, [conversation])
   return (
-    <div className='p-2'>
+    <div className='p-2 w-full'>
       {messages.length === 0 && <div className='text-xs text-center text-gray-400'>Send message to start conversation</div>}
       {messages && messages.map((message, index) => {
         return <Massage key={index} message={message} />

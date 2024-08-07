@@ -30,7 +30,7 @@ const Home = () => {
           {conversation ?
           (<div className="flex flex-col justify-center w-3/5 h-full border-left-2">
             <Header />
-            <div className="h-full overflow-auto">
+            <div className="h-full w-full overflow-auto">
               <Massages />
             </div>
             <Sendmassage />

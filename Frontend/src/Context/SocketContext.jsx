@@ -17,7 +17,6 @@ export const SocketProvider = ({children})=>{
 
     useEffect(()=>{
         if(user){
-            console.log(user)
             const newSocket = io("http://localhost:5000",{
                 query:{
                     userId:user.id
